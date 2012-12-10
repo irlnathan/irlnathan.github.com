@@ -9,7 +9,7 @@
   <meta name="author" content="Irl Nathan">
 
   
-  <meta name="description" content="I&#8217;ve experimented with many ways to document the progress of learning to program. I decided to try a database-less blog platform and came &hellip;">
+  <meta name="description" content="An important part of my new project hackeconomics relies upon the use of charts. I wasn&#8217;t happy with having static images of charts and instead &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +72,246 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/12/05/how-to-create-your-first-chart-u-using-the-flot-jquery-library/">How to Create Your First Chart U Using the Flot Jquery Library</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-05T08:54:00-06:00" pubdate data-updated="true">Dec 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>An important part of my new project <a href="www.hackeconomics.com">hackeconomics</a> relies upon the use of charts.  I wasn&#8217;t happy with having static images of charts and instead wanting something a bit more dynamic.  Poking around I came across the jquery <a href="http://www.flotcharts.org/">flot</a> library.  Below is my first &#8220;real&#8221; chart.</p>
+
+<!-- The example chart wrapped in a div -->
+
+
+
+
+<div>
+<html>
+<head> 
+    <meta http-equiv="Content-Type" content="text/html"; charset=utf-8">
+    <title> Flot Example</title>
+    <script language="javascript" type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="/javascripts/jquery.flot.min.js"></script>
+    <script src="/javascripts/jquery_currency.js"></script>
+    <script src="/javascripts/accounting.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/layout.css">
+     <link rel="stylesheet" href="/stylesheets/graph.css">
+    <!--[if lte IE 8]>
+        <script language="javascript" type="text/javascript" src="/javascripts/excanvas.js""></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="title">US Annual GDP vs. Debt</div>
+    <div class="graph-info">
+        <a href="javascript:void(0)" class="gdp">US GDP ($Billions)</a>
+        <a href="javascript:void(0)" class="debt">US Debt ($Billions)</a>
+    </div>
+    <div id = "tip"></div>
+    <div id = "placeholder" style="width: 550px; height:300px;"></div>
+</body>
+<script type="text/javascript">
+    var data, data1, options, chart, chart2;
+    var data2, data3;
+    data2 = [ [2000, 9951.5], [2001, 10286.2], [2002, 10642.3], [2003, 11142.2], [2004, 11853.3], [2005, 12623.0], [2006, 13377.2], [2007, 14028.7], [2008, 14291.6], [2009, 13973.7], [2010, 14498.9], [2011, 15075.7] ];
+    data1 = [ [2000, 5698.93], [2001, 5812.87], [2002, 6191.61], [2003, 6728.05], [2004, 7345.15], [2005, 7929.14], [2006, 8494.60], [2007, 8494.60], [2008, 9913.53], [2009, 11723.35], [2010, 13390.44], [2011, 14656.62] ];
+    data = [{data: data2, 
+                color: '#71c73e', 
+                bars: {
+                    show:true, 
+                    barWidth:0.5, 
+                    align: 'center'}
+            },
+
+            { data:data1, 
+              color: 'red', 
+              lines: {
+                show:true}, 
+              points: {
+                show: true,
+                radius: 5}
+            }
+            
+            ];
+    options = {
+        xaxis: {
+            tickColor: 'transparent',
+            tickSize: 1
+        },
+        grid: {
+            color: '#646464',
+            borderColor: 'transparent',
+            borderWidth: 20,
+            hoverable: true
+        },
+        yaxis: {
+            tickSize: 1000,
+            min: 4900,
+            max: 15500
+        }  
+
+    };
+
+    $(document).ready(function() {
+    chart1 = $.plot($("#placeholder"),data,options);
+    //chart2 = $.plot($("#placeholder2"),data,options);
+
+    // https://github.com/gilbitron/jQuery-Currency
+    $('.yAxis .tickLabel').currency({decimals: 0});
+
+    function showTooltip(x, y, contents) {
+        $('<div id="tooltip">' + contents + '</div>').css({
+            top: y - 16,
+            left: x + 20
+        }).appendTo('body').fadeIn();
+    }
+     
+    var previousPoint = null;
+     
+    $('#placeholder').bind('plothover', function (event, pos, item) {
+        if (item) {
+            if (previousPoint != item.datapoint) {
+                previousPoint = item.datapoint;
+                $('#tooltip').remove();
+                var x = item.datapoint[0],
+
+                    // http://josscrowcroft.github.com/accounting.js/#download
+                   y = accounting.formatMoney(item.datapoint[1], "$", 0);
+                   // y = item.datapoint[1];
+                    showTooltip(pos.pageX, pos.pageY, ' Billions: ' + y + ' Year: ' + x);
+            }
+        } else {
+            $('#tooltip').remove();
+            previousPoint = null;
+        }
+    });
+
+ previousPoint = null;
+     
+    $('#placeholder2').bind('plothover', function (event, pos, item) {
+        if (item) {
+            if (previousPoint != item.datapoint) {
+                previousPoint = item.datapoint;
+                $('#tooltip').remove();
+                var x = item.datapoint[0],
+
+                    // http://josscrowcroft.github.com/accounting.js/#download
+                   y = accounting.formatMoney(item.datapoint[1], "$", 0);
+                   // y = item.datapoint[1];
+                    showTooltip(pos.pageX, pos.pageY, ' Billions: ' + y + ' Year: ' + x);
+            }
+        } else {
+            $('#tooltip').remove();
+            previousPoint = null;
+        }
+    });
+
+
+});
+
+</script>
+</html> 
+
+    
+</div>
+
+
+<!-- The end of the example chart wrapped in a div -->
+
+
+<p>I say my first &#8220;real&#8221; chart because I had to work my way from a simple chart, to a chart with tooltips, to a chart that would work in <a href="http://octopress.org/">Octopress</a>. So I&#8217;ll start with a basic chart&#8217;s code:</p>
+
+<figure class='code'><figcaption><span><!-- Basic Chart --></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span>
+</span><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'> <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;title&gt;</span>Basic Example<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="c">&lt;!--    &lt;link href=&quot;layout.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt; --&gt;</span>
+</span><span class='line'>    <span class="c">&lt;!--[if lte IE 8]&gt;&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;excanvas.min.js&quot;&gt;&lt;/script&gt;&lt;![endif]--&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">language=</span><span class="s">&quot;javascript&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">language=</span><span class="s">&quot;javascript&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;jquery.flot.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'> <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;h1&gt;</span>Basic Examples<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;placeholder&quot;</span> <span class="na">style=</span><span class="s">&quot;width:600px;height:300px;&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">d1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">60</span><span class="p">]];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">plot</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#placeholder&quot;</span><span class="p">),</span> <span class="p">[</span><span class="nx">d1</span><span class="p">]);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="nt">&lt;/script&gt;</span>
+</span><span class='line'>
+</span><span class='line'> <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here&#8217;s a screencast I did explaining the code.  Next post is a basic chart with more styling.</p>
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/Nua6weQxMLY?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/11/28/origins-of-my-octopress-site/">Origins of My Octopress Site</a></h1>
     
     
@@ -118,6 +358,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/05/how-to-create-your-first-chart-u-using-the-flot-jquery-library/">How to create your first chart u using the Flot jquery library</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/11/28/origins-of-my-octopress-site/">Origins of My Octopress Site</a>

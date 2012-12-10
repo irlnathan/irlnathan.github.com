@@ -1,24 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Irl's Hacker Blog]]></title>
-  <link href="http://irlnathan.github.com/atom.xml" rel="self"/>
-  <link href="http://irlnathan.github.com/"/>
-  <updated>2012-12-09T23:07:21-06:00</updated>
-  <id>http://irlnathan.github.com/</id>
-  <author>
-    <name><![CDATA[Irl Nathan]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How to create your first chart u using the Flot jquery library - Irl's Hacker Blog</title>
+  <meta name="author" content="Irl Nathan">
 
   
-  <entry>
-    <title type="html"><![CDATA[How to create your first chart u using the Flot jquery library]]></title>
-    <link href="http://irlnathan.github.com/blog/2012/12/05/how-to-create-your-first-chart-u-using-the-flot-jquery-library/"/>
-    <updated>2012-12-05T08:54:00-06:00</updated>
-    <id>http://irlnathan.github.com/blog/2012/12/05/how-to-create-your-first-chart-u-using-the-flot-jquery-library</id>
-    <content type="html"><![CDATA[<p>An important part of my new project <a href="www.hackeconomics.com">hackeconomics</a> relies upon the use of charts.  I wasn&#8217;t happy with having static images of charts and instead wanting something a bit more dynamic.  Poking around I came across the jquery <a href="http://www.flotcharts.org/">flot</a> library.  Below is my first &#8220;real&#8221; chart.</p>
+  <meta name="description" content="An important part of my new project hackeconomics relies upon the use of charts. I wasn&#8217;t happy with having static images of charts and instead &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://irlnathan.github.com/blog/2012/12/05/how-to-create-your-first-chart-u-using-the-flot-jquery-library/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Irl's Hacker Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Irl's Hacker Blog</a></h1>
+  
+    <h2>Learning by trial and error.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:irlnathan.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+   <li><a href="/about">About</a></li>
+
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How to Create Your First Chart U Using the Flot Jquery Library</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-05T08:54:00-06:00" pubdate data-updated="true">Dec 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>An important part of my new project <a href="www.hackeconomics.com">hackeconomics</a> relies upon the use of charts.  I wasn&#8217;t happy with having static images of charts and instead wanting something a bit more dynamic.  Poking around I came across the jquery <a href="http://www.flotcharts.org/">flot</a> library.  Below is my first &#8220;real&#8221; chart.</p>
 
 <!-- The example chart wrapped in a div -->
 
@@ -30,14 +104,14 @@
 <head> 
     <meta http-equiv="Content-Type" content="text/html"; charset=utf-8">
     <title> Flot Example</title>
-    <script language="javascript" type="text/javascript" src="http://irlnathan.github.com/javascripts/jquery.js"></script>
-    <script language="javascript" type="text/javascript" src="http://irlnathan.github.com/javascripts/jquery.flot.min.js"></script>
-    <script src="http://irlnathan.github.com/javascripts/jquery_currency.js"></script>
-    <script src="http://irlnathan.github.com/javascripts/accounting.min.js"></script>
-    <link rel="stylesheet" href="http://irlnathan.github.com/stylesheets/layout.css">
-     <link rel="stylesheet" href="http://irlnathan.github.com/stylesheets/graph.css">
+    <script language="javascript" type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="/javascripts/jquery.flot.min.js"></script>
+    <script src="/javascripts/jquery_currency.js"></script>
+    <script src="/javascripts/accounting.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/layout.css">
+     <link rel="stylesheet" href="/stylesheets/graph.css">
     <!--[if lte IE 8]>
-        <script language="javascript" type="text/javascript" src="http://irlnathan.github.com/javascripts/excanvas.js""></script>
+        <script language="javascript" type="text/javascript" src="/javascripts/excanvas.js""></script>
     <![endif]-->
 </head>
 <body>
@@ -223,20 +297,109 @@
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Origins of My Octopress Site]]></title>
-    <link href="http://irlnathan.github.com/blog/2012/11/28/origins-of-my-octopress-site/"/>
-    <updated>2012-11-28T22:29:00-06:00</updated>
-    <id>http://irlnathan.github.com/blog/2012/11/28/origins-of-my-octopress-site</id>
-    <content type="html"><![CDATA[<p>I&#8217;ve experimented with many ways to document the progress of learning to program.  I decided to try a database-less blog platform and came across <a href="http://octopress.org/">Octopress</a>.  In case you don&#8217;t know this blog is built using Octopress.  I&#8217;d heard a lot about jekyll and after reading a bit of Brandon&#8217;s implementation I decided to give it a try.</p>
+</div>
 
-<h2>What I Understand So Far</h2>
 
-<p>Octopress is based upon <a href="https://github.com/mojombo/jekyll">jekyll</a> which is a static site generator built in Ruby.  It takes site templates which in my case can include blog posts and runs them through a converter which delivers static web pages that can be served with Apache or other web servers.  This is where Octopress comes in.  Instead of having to create the templates, javascripts, css, etc. necessary for jekyll to work, Octopress does a bunch of the set-up for you.  Essentially all you have to do is install it on your local machine and start writing.</p>
-]]></content>
-  </entry>
+  <footer>
+    <p class="meta">
+      
   
-</feed>
+
+<span class="byline author vcard">Posted by <span class="fn">Irl Nathan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-05T08:54:00-06:00" pubdate data-updated="true">Dec 5<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://irlnathan.github.com/blog/2012/12/05/how-to-create-your-first-chart-u-using-the-flot-jquery-library/" data-via="" data-counturl="http://irlnathan.github.com/blog/2012/12/05/how-to-create-your-first-chart-u-using-the-flot-jquery-library/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/11/28/origins-of-my-octopress-site/" title="Previous Post: Origins of My Octopress Site">&laquo; Origins of My Octopress Site</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/05/how-to-create-your-first-chart-u-using-the-flot-jquery-library/">How to create your first chart u using the Flot jquery library</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/28/origins-of-my-octopress-site/">Origins of My Octopress Site</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Irl Nathan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
