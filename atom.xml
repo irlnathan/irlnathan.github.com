@@ -4,7 +4,7 @@
   <title><![CDATA[Irl's Hacker Blog]]></title>
   <link href="http://irlnathan.github.com/atom.xml" rel="self"/>
   <link href="http://irlnathan.github.com/"/>
-  <updated>2013-02-18T10:30:42-06:00</updated>
+  <updated>2013-02-20T09:40:25-06:00</updated>
   <id>http://irlnathan.github.com/</id>
   <author>
     <name><![CDATA[Irl Nathan]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Creating a Data Model]]></title>
+    <link href="http://irlnathan.github.com/blog/2013/02/19/creating-a-data-model/"/>
+    <updated>2013-02-19T16:32:00-06:00</updated>
+    <id>http://irlnathan.github.com/blog/2013/02/19/creating-a-data-model</id>
+    <content type="html"><![CDATA[<p>Todays Assignment: Create a new Data Model for hackEconomics.</p>
+
+<h2>Data Model Goals</h2>
+
+<ol>
+<li>Allow FRED data series to be contained in logical groups called &#8216;hacks&#8217;.  For example, you can create a group called U.S. Government Revenue, Spending, and Deficit.  This group would contain the data series for each.</li>
+</ol>
+
+
+<p>The tables will be:</p>
+
+<ul>
+<li>Hacks (has_many :hackeries, has_many :series, :through => hackeries)
+@ Hackeries (belongs_to :hacks, belongs_to :series)</li>
+<li>Series (has_many :observations, has_many :hackeries, has_many :hacks, :through => hackeries )</li>
+<li>Observations (belongs_to :series)</li>
+</ul>
+
+
+<p>A hack consists of one or more series.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Creating hackEconomics...step-by-step]]></title>
+    <link href="http://irlnathan.github.com/blog/2013/02/18/creating-hackeconomics-dot-dot-dot-step-by-step/"/>
+    <updated>2013-02-18T12:12:00-06:00</updated>
+    <id>http://irlnathan.github.com/blog/2013/02/18/creating-hackeconomics-dot-dot-dot-step-by-step</id>
+    <content type="html"><![CDATA[<h2>My Initial Todo List</h2>
+
+<ol>
+<li>Grab data from the FRED api.</li>
+<li>Choosing a charting engine.</li>
+<li>Format the data from FRED so that the Charting Engine can read it.</li>
+<li>Save the data in a database.</li>
+<li>Create a rails app that can view the data and present the charts.</li>
+</ol>
+
+
+<p>I&#8217;ve completed the first five steps and I plan to document how I did those steps in future posts.  The data collection is done in ruby using Active Record independently of rails.  This was great for learning how Active Record &#8220;really&#8221; works, but is absolutely awful for moving the project to a service like Heroku to actually test it in the wild.</p>
+
+<p>Here&#8217;s the tech stack so far:</p>
+
+<ul>
+<li>MVC: Rails</li>
+<li>Database: Posgresql</li>
+<li>Charts: <a href="" title="http://www.highcharts.com/">highstocks</a></li>
+<li>XML Parsing: <a href="" title="http://xml-simple.rubyforge.org/">xml-simple gem</a></li>
+<li>Number formatting: <a href="" title="http://josscrowcroft.github.com/accounting.js/">account.js</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to create your first chart using the Flot jquery library]]></title>

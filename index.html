@@ -9,7 +9,7 @@
   <meta name="author" content="Irl Nathan">
 
   
-  <meta name="description" content="An important part of my new project hackeconomics relies upon the use of charts. I wasn&#8217;t happy with having static images of charts and instead &hellip;">
+  <meta name="description" content="Todays Assignment: Create a new Data Model for hackEconomics. Data Model Goals Allow FRED data series to be contained in logical groups called &#8216 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,119 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/19/creating-a-data-model/">Creating a Data Model</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-19T16:32:00-06:00" pubdate data-updated="true">Feb 19<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Todays Assignment: Create a new Data Model for hackEconomics.</p>
+
+<h2>Data Model Goals</h2>
+
+<ol>
+<li>Allow FRED data series to be contained in logical groups called &#8216;hacks&#8217;.  For example, you can create a group called U.S. Government Revenue, Spending, and Deficit.  This group would contain the data series for each.</li>
+</ol>
+
+
+<p>The tables will be:</p>
+
+<ul>
+<li>Hacks (has_many :hackeries, has_many :series, :through => hackeries)
+@ Hackeries (belongs_to :hacks, belongs_to :series)</li>
+<li>Series (has_many :observations, has_many :hackeries, has_many :hacks, :through => hackeries )</li>
+<li>Observations (belongs_to :series)</li>
+</ul>
+
+
+<p>A hack consists of one or more series.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/18/creating-hackeconomics-dot-dot-dot-step-by-step/">Creating hackEconomics&#8230;step-by-step</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-18T12:12:00-06:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>My Initial Todo List</h2>
+
+<ol>
+<li>Grab data from the FRED api.</li>
+<li>Choosing a charting engine.</li>
+<li>Format the data from FRED so that the Charting Engine can read it.</li>
+<li>Save the data in a database.</li>
+<li>Create a rails app that can view the data and present the charts.</li>
+</ol>
+
+
+<p>I&#8217;ve completed the first five steps and I plan to document how I did those steps in future posts.  The data collection is done in ruby using Active Record independently of rails.  This was great for learning how Active Record &#8220;really&#8221; works, but is absolutely awful for moving the project to a service like Heroku to actually test it in the wild.</p>
+
+<p>Here&#8217;s the tech stack so far:</p>
+
+<ul>
+<li>MVC: Rails</li>
+<li>Database: Posgresql</li>
+<li>Charts: <a href="" title="http://www.highcharts.com/">highstocks</a></li>
+<li>XML Parsing: <a href="" title="http://xml-simple.rubyforge.org/">xml-simple gem</a></li>
+<li>Number formatting: <a href="" title="http://josscrowcroft.github.com/accounting.js/">account.js</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -358,6 +471,14 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/19/creating-a-data-model/">Creating a Data Model</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/creating-hackeconomics-dot-dot-dot-step-by-step/">Creating hackEconomics&#8230;step-by-step</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/12/05/how-to-create-your-first-chart-u-using-the-flot-jquery-library/">How to create your first chart using the Flot jquery library</a>
