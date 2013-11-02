@@ -4,7 +4,7 @@
   <title><![CDATA[SailsCasts]]></title>
   <link href="http://irlnathan.github.com/atom.xml" rel="self"/>
   <link href="http://irlnathan.github.com/"/>
-  <updated>2013-11-02T00:53:50-05:00</updated>
+  <updated>2013-11-02T00:56:00-05:00</updated>
   <id>http://irlnathan.github.com/</id>
   <author>
     <name><![CDATA[Irl Nathan]]></name>
@@ -18,7 +18,7 @@
     <link href="http://irlnathan.github.com/blog/2013/11/02/sailscasts/"/>
     <updated>2013-11-02T00:51:00-05:00</updated>
     <id>http://irlnathan.github.com/blog/2013/11/02/sailscasts</id>
-    <content type="html"><![CDATA[<p>My latest project are [sailscasts]:irlnathan.github.io/sailscasts</p>
+    <content type="html"><![CDATA[<p>My latest project are <a href="irlnathan.github.io/sailscasts">sailscasts</a></p>
 ]]></content>
   </entry>
   
